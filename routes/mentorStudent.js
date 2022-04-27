@@ -13,15 +13,19 @@ const router = express.Router();
 router.post("/createMentor", async function (req, res) {
   const createMentor = req.body;
   const result = await createMentor(createMentor);
-
-  res.send(result);
+  result
+    ? res.send(result)
+    : res.status(400).send({ error: "Mentor not created" });
 });
 
 //createStudent
 //API Should be called like /mentorStudent/createStudent
-router.post("/createStudent", async function (req, res) {
+router.post("/createStudent", async function (req, res, err) {
   const createStudent = req.body;
   const result = await createStudent(createStudent);
+  result
+    ? res.send(result)
+    : res.status(400).send({ error: "Student Creation Failed" });
   res.send(result);
 });
 
@@ -29,13 +33,18 @@ router.post("/createStudent", async function (req, res) {
 router.get("/getAllStudent", async function (req, res) {
   console.log("get all student");
   const result = await getAllStudent();
+  result
+    ? res.send(result)
+    : res.status(400).send({ error: "Unable to fetch the results" });
   res.send(result);
 });
 
 router.get("/getAllMentor", async function (req, res) {
   console.log("get all Mentors");
   const result = await getAllMentor();
-  res.send(result);
+  result
+    ? res.send(result)
+    : res.status(400).send({ error: "Unable to fetch the results" });
 });
 
 export const mentorStudentRouter = router;
