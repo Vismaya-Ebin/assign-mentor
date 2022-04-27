@@ -1,0 +1,22 @@
+ [
+    {
+      "name": "Rahul",
+      "tech": "React"
+    },
+    {
+      "name": "Remya",
+      "tech": "React"
+    },
+    {
+      "name": "Vismaya",
+      "tech": "Angular"
+    },
+    {
+      "name": "Susmitha",
+      "tech": "Angular"
+    },
+    {
+      "name": "Venu",
+      "tech": "Node"
+    }
+  ]
